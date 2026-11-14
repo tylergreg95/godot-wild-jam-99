@@ -20,6 +20,7 @@ func create_next_height_goal() -> Area2D:
 	current_height_goal += height_goal_delta
 	var next_goal: Area2D = height_goal_area.instantiate()
 	next_goal.global_position = Vector2(X_OFFSET, -current_height_goal)
+	next_goal.set_height_label_text(current_height_goal)
 	add_child(next_goal)
 	next_goal.body_entered.connect(handle_height_goal_entered)
 	return next_goal
