@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ba1v7jol1ak3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pakj4"]
+size = Vector2(500, 10)
+
+[node name="HeightGoal" type="Area2D" unique_id=993445748]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=469441296]
+shape = SubResource("RectangleShape2D_pakj4")
+debug_color = Color(0.23845905, 0.6371952, 0, 0.41960785)

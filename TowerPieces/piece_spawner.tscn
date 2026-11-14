@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://djyks8aglmfmk"]
+
+[ext_resource type="Script" uid="uid://dxu6hge450whg" path="res://TowerPieces/piece_spawner.gd" id="1_73r2g"]
+
+[node name="PieceSpawner" type="Marker2D" unique_id=580911642]
+script = ExtResource("1_73r2g")

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bh413x7bib4wk"]
+
+[ext_resource type="Script" uid="uid://dceaw2eqed3cy" path="res://Level/level.gd" id="1_iincs"]
+[ext_resource type="Texture2D" uid="uid://dayjmlrywp0y6" path="res://kenney_puzzle-pack-1/PNG/Double/element_grey_square.png" id="2_qmtf6"]
+[ext_resource type="PackedScene" uid="uid://djyks8aglmfmk" path="res://TowerPieces/piece_spawner.tscn" id="2_uawph"]
+[ext_resource type="Script" uid="uid://kmqfh5dc0uk6" path="res://Level/death_area.gd" id="3_uawph"]
+[ext_resource type="PackedScene" uid="uid://cvxjyovty6tlw" path="res://Level/tower_manager.tscn" id="4_52x1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pakj4"]
+size = Vector2(404, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxlej"]
+size = Vector2(6000, 20)
+
+[node name="Level" type="Node2D" unique_id=1509851918]
+script = ExtResource("1_iincs")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1726385044]
+position = Vector2(477, 47)
+scale = Vector2(1.485, 0.565)
+
+[node name="Platform" type="Sprite2D" parent="Platform" unique_id=1080591736]
+scale = Vector2(6.34375, 2.671875)
+texture = ExtResource("2_qmtf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=2034223438]
+shape = SubResource("RectangleShape2D_pakj4")
+
+[node name="PieceSpawner" parent="." unique_id=580911642 node_paths=PackedStringArray("tower_manager") instance=ExtResource("2_uawph")]
+position = Vector2(-470, -6)
+gizmo_extents = 28.0
+tower_manager = NodePath("../TowerManager")
+
+[node name="DeathArea" type="Area2D" parent="." unique_id=2024926938]
+position = Vector2(0, 540)
+script = ExtResource("3_uawph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea" unique_id=820969087]
+shape = SubResource("RectangleShape2D_sxlej")
+debug_color = Color(0.7661179, 0.16789174, 0.99999994, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1119795409]
+position = Vector2(34, -200)
+zoom = Vector2(0.685, 0.685)
+
+[node name="TowerManager" parent="." unique_id=1520560073 instance=ExtResource("4_52x1o")]
+
+[connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
+[connection signal="goal_completed" from="TowerManager" to="." method="_on_tower_manager_goal_completed"]
