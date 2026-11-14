@@ -4,6 +4,7 @@ class_name TowerPiece
 signal piece_landed()
 
 @export var launch_force: float = 6.5
+@export var max_x_drag: float = 200.0
 
 var mouse_in_piece: bool = false
 var piece_following_cursor: bool = false
@@ -23,7 +24,18 @@ var atlas_sprite_size: int = 16
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and piece_following_cursor:
-		global_position = get_global_mouse_position()
+		var mouse_pos: Vector2 = get_global_mouse_position()
+		var new_pos: Vector2 = Vector2(
+			clampf(
+				mouse_pos.x, 
+				original_position.x - max_x_drag, 
+				original_position.x + max_x_drag), 
+			clampf(
+				mouse_pos.y, 
+				original_position.y - max_x_drag, 
+				original_position.y + max_x_drag)
+			)
+		global_position = new_pos
 
 func _on_mouse_entered() -> void:
 	if not clickable:
@@ -48,11 +60,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func launch() -> void:
 	
-	#var direction: Vector2 = release_position.direction_to(original_position)
-	#var distance: float = release_position.distance_to(original_position)
+	var direction: Vector2 = release_position.direction_to(original_position)
+	var distance: float = release_position.distance_to(original_position)
 	freeze = false
-	#linear_velocity = direction * distance * launch_force
-	#print(distance)
+	linear_velocity = direction * distance * launch_force
+	print(distance)
 	pass
 
 func setup(sprite_index: int):
