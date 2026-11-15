@@ -2,6 +2,8 @@ extends Marker2D
 
 @export var tower_manager: TowerManager
 
+@onready var line_2d: Line2D = $Line2D
+
 var piece_scene: PackedScene = preload("uid://clvj0861e8vwb")
 var piece_l_1_scene: PackedScene = preload("uid://cc28014unv7s0")
 var piece_s_1_scene: PackedScene = preload("uid://b37kkkcpg7oei")
@@ -12,9 +14,9 @@ var sprite_index: int = 0
 
 func _ready() -> void:
 	pieces.append(piece_scene)
-	#pieces.append(piece_l_1_scene)
-	#pieces.append(piece_s_1_scene)
-	#pieces.append(piece_t_1_scene)
+	pieces.append(piece_l_1_scene)
+	pieces.append(piece_s_1_scene)
+	pieces.append(piece_t_1_scene)
 	spawn_tower_piece()
 
 
@@ -25,4 +27,8 @@ func spawn_tower_piece() -> void:
 	instance.setup(sprite_index)
 	sprite_index = (sprite_index + 1) % 8
 	instance.piece_landed.connect(spawn_tower_piece)
+	instance.position_changed.connect(update_direction_line)
 	tower_manager.add_tower_piece(instance)
+
+func update_direction_line(piece_pos: Vector2):
+	line_2d.set_point_position(1, global_position - piece_pos)

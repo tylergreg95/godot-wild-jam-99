@@ -2,6 +2,7 @@ extends RigidBody2D
 class_name TowerPiece
 
 signal piece_landed()
+signal position_changed(pos: Vector2)
 
 @export var launch_force: float = 5.0
 @export var max_x_drag: float = 300.0
@@ -30,6 +31,7 @@ func _input(event: InputEvent) -> void:
 				original_position.y + max_x_drag)
 			)
 		global_position = new_pos
+		position_changed.emit(global_position)
 	if clickable and not piece_following_cursor:
 		if event.is_action_pressed("rotate_left"):
 			rotate(-deg_to_rad(90))
@@ -49,21 +51,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and mouse_in_piece and not piece_following_cursor:
 		clickable = false
 		original_position = global_position
-		#print(original_position)
 		piece_following_cursor = true
 	elif event.is_action_released("left_click") and piece_following_cursor:
 		release_position = global_position
-		#print(release_position)
 		piece_following_cursor = false
 		launch()
 
 func launch() -> void:
-	
 	var direction: Vector2 = release_position.direction_to(original_position)
 	var distance: float = release_position.distance_to(original_position)
 	freeze = false
 	linear_velocity = direction * distance * launch_force
-	print(distance)
 	pass
 
 func setup(sprite_index: int):
@@ -78,17 +76,10 @@ func handle_body_entered(body: Node) -> void:
 	print(body)
 	if not has_landed:
 		has_landed = true
-		
 		var tower_manager: TowerManager = get_tree().current_scene.find_child("TowerManager")
-		
 		if body is TowerPiece:
 			reparent.call_deferred(body.get_parent(), true)
-
-			
 		else:
 			reparent.call_deferred(body, true)
-
 		tree_exiting.connect.call_deferred(tower_manager.remove_tower_piece.bind(self))
-		
-		
 		piece_landed.emit()

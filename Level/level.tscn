@@ -10,6 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pakj4"]
 size = Vector2(688, 274.8938)
 
+[sub_resource type="Gradient" id="Gradient_pakj4"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxlej"]
 size = Vector2(20000, 20)
 
@@ -36,6 +39,10 @@ tower_manager = NodePath("../TowerManager")
 position = Vector2(0, 65)
 scale = Vector2(0.125, 1)
 texture = ExtResource("4_nk1il")
+
+[node name="Line2D" type="Line2D" parent="PieceSpawner" unique_id=1803754867]
+points = PackedVector2Array(0, 0, 65, 0)
+gradient = SubResource("Gradient_pakj4")
 
 [node name="DeathArea" type="Area2D" parent="." unique_id=2024926938]
 position = Vector2(0, 540)
