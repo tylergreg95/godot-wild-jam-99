@@ -72,6 +72,7 @@ size = Vector2(128, 128)
 
 [node name="TowerPiece" type="RigidBody2D" unique_id=219981200]
 input_pickable = true
+mass = 4.0
 center_of_mass_mode = 1
 freeze = true
 contact_monitor = true
