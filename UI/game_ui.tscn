@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://rpdhc7mc5ieg"]
+
+[ext_resource type="Texture2D" uid="uid://7lbbbr35nbc0" path="res://Art/godotwild99_heart_empty.png" id="1_mp46i"]
+
+[node name="GameUI" type="Control" unique_id=1906126782]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1085964390]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 40.0
+
+[node name="Heart_1" type="TextureRect" parent="HBoxContainer" unique_id=1090200688]
+layout_mode = 2
+texture = ExtResource("1_mp46i")
+stretch_mode = 4
+
+[node name="Heart_2" type="TextureRect" parent="HBoxContainer" unique_id=1826141867]
+layout_mode = 2
+texture = ExtResource("1_mp46i")
+stretch_mode = 4
+
+[node name="Heart_3" type="TextureRect" parent="HBoxContainer" unique_id=1846300704]
+layout_mode = 2
+texture = ExtResource("1_mp46i")
+stretch_mode = 4
+
+[node name="Heart_4" type="TextureRect" parent="HBoxContainer" unique_id=919217505]
+layout_mode = 2
+texture = ExtResource("1_mp46i")
+stretch_mode = 4
+
+[node name="Heart_5" type="TextureRect" parent="HBoxContainer" unique_id=996000107]
+layout_mode = 2
+texture = ExtResource("1_mp46i")
+stretch_mode = 4

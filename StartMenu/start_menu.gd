@@ -1,5 +1,4 @@
 extends Control
-
 var level_scene: PackedScene = preload("uid://bh413x7bib4wk")
 
 func _on_play_button_pressed() -> void:

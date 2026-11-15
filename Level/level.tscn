@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://djyks8aglmfmk" path="res://TowerPieces/piece_spawner.tscn" id="2_uawph"]
 [ext_resource type="Script" uid="uid://kmqfh5dc0uk6" path="res://Level/death_area.gd" id="3_uawph"]
 [ext_resource type="PackedScene" uid="uid://cvxjyovty6tlw" path="res://Level/tower_manager.tscn" id="4_52x1o"]
+[ext_resource type="PackedScene" uid="uid://rpdhc7mc5ieg" path="res://UI/game_ui.tscn" id="7_d6qko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pakj4"]
 size = Vector2(688, 274.8938)
@@ -15,6 +16,11 @@ size = Vector2(20000, 20)
 
 [node name="Level" type="Node2D" unique_id=1509851918]
 script = ExtResource("1_iincs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=389915867]
+
+[node name="GameUI" parent="CanvasLayer" unique_id=1906126782 instance=ExtResource("7_d6qko")]
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1706847154]
 position = Vector2(0, -3703.915)
