@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clvj0861e8vwb"]
 
 [ext_resource type="Script" uid="uid://b7f3cd3ntj7h" path="res://TowerPieces/tower_piece.gd" id="1_xs26j"]
-[ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://godotwild99_tower_pieces.png" id="2_xs26j"]
+[ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://Art/godotwild99_tower_pieces.png" id="2_xs26j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nk1il"]
 

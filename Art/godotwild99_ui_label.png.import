@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cntrutphvtfqt"
-path="res://.godot/imported/godotwild99_tower_pieces.png-bd3119ac940a0eed515fe581114854a8.ctex"
+uid="uid://bld1trcoaeqgn"
+path="res://.godot/imported/godotwild99_ui_label.png-c5005bc94fd837bfd2db3cf934da6292.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://godotwild99_tower_pieces.png"
-dest_files=["res://.godot/imported/godotwild99_tower_pieces.png-bd3119ac940a0eed515fe581114854a8.ctex"]
+source_file="res://Art/godotwild99_ui_label.png"
+dest_files=["res://.godot/imported/godotwild99_ui_label.png-c5005bc94fd837bfd2db3cf934da6292.ctex"]
 
 [params]
 

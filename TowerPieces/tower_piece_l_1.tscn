@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cc28014unv7s0"]
 
 [ext_resource type="Script" uid="uid://b7f3cd3ntj7h" path="res://TowerPieces/tower_piece.gd" id="1_beth4"]
-[ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://godotwild99_tower_pieces.png" id="2_tqnwh"]
+[ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://Art/godotwild99_tower_pieces.png" id="2_tqnwh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xs26j"]
 atlas = ExtResource("2_tqnwh")
@@ -69,7 +69,6 @@ animations = [{
 
 [node name="TowerPiece" type="RigidBody2D" unique_id=219981200]
 input_pickable = true
-mass = 4.0
 center_of_mass_mode = 1
 freeze = true
 contact_monitor = true

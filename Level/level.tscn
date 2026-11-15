@@ -1,17 +1,14 @@
 [gd_scene format=3 uid="uid://bh413x7bib4wk"]
 
 [ext_resource type="Script" uid="uid://dceaw2eqed3cy" path="res://Level/level.gd" id="1_iincs"]
-[ext_resource type="Texture2D" uid="uid://dug7kfexakrps" path="res://godotwild99_platform.png" id="2_nk1il"]
+[ext_resource type="Texture2D" uid="uid://bhmcw5fvaxywo" path="res://Art/godotwild99_background_1.png" id="2_d6qko"]
+[ext_resource type="Texture2D" uid="uid://dug7kfexakrps" path="res://Art/godotwild99_platform.png" id="2_nk1il"]
 [ext_resource type="PackedScene" uid="uid://djyks8aglmfmk" path="res://TowerPieces/piece_spawner.tscn" id="2_uawph"]
 [ext_resource type="Script" uid="uid://kmqfh5dc0uk6" path="res://Level/death_area.gd" id="3_uawph"]
 [ext_resource type="PackedScene" uid="uid://cvxjyovty6tlw" path="res://Level/tower_manager.tscn" id="4_52x1o"]
-[ext_resource type="Texture2D" uid="uid://dcw6xda5rsuin" path="res://icon.svg" id="4_nk1il"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pakj4"]
 size = Vector2(688, 274.8938)
-
-[sub_resource type="Gradient" id="Gradient_pakj4"]
-colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxlej"]
 size = Vector2(20000, 20)
@@ -19,30 +16,26 @@ size = Vector2(20000, 20)
 [node name="Level" type="Node2D" unique_id=1509851918]
 script = ExtResource("1_iincs")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1706847154]
+position = Vector2(0, -3703.915)
+scale = Vector2(4, 4)
+texture = ExtResource("2_d6qko")
+
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1726385044]
 position = Vector2(451, 143)
-
-[node name="Platform" type="Sprite2D" parent="Platform" unique_id=1080591736]
-scale = Vector2(4, 4)
-texture = ExtResource("2_nk1il")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=2034223438]
 position = Vector2(-13, -3.4468994)
 shape = SubResource("RectangleShape2D_pakj4")
 
+[node name="Platform" type="Sprite2D" parent="Platform" unique_id=1080591736]
+scale = Vector2(4, 4)
+texture = ExtResource("2_nk1il")
+
 [node name="PieceSpawner" parent="." unique_id=580911642 node_paths=PackedStringArray("tower_manager") instance=ExtResource("2_uawph")]
 position = Vector2(-470, -6)
 gizmo_extents = 28.0
 tower_manager = NodePath("../TowerManager")
-
-[node name="Sprite2D" type="Sprite2D" parent="PieceSpawner" unique_id=786073354]
-position = Vector2(0, 65)
-scale = Vector2(0.125, 1)
-texture = ExtResource("4_nk1il")
-
-[node name="Line2D" type="Line2D" parent="PieceSpawner" unique_id=1803754867]
-points = PackedVector2Array(0, 0, 65, 0)
-gradient = SubResource("Gradient_pakj4")
 
 [node name="DeathArea" type="Area2D" parent="." unique_id=2024926938]
 position = Vector2(0, 540)

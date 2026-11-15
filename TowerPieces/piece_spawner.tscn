@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://djyks8aglmfmk"]
 
 [ext_resource type="Script" uid="uid://dxu6hge450whg" path="res://TowerPieces/piece_spawner.gd" id="1_73r2g"]
+[ext_resource type="Texture2D" uid="uid://bq8i2ikqu5dbv" path="res://Art/godotwild99_dash_outline.png" id="2_e3tak"]
+
+[sub_resource type="Gradient" id="Gradient_e3tak"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)
 
 [node name="PieceSpawner" type="Marker2D" unique_id=580911642]
 script = ExtResource("1_73r2g")
+
+[node name="Godotwild99DashOutline" type="Sprite2D" parent="." unique_id=1357770903]
+scale = Vector2(4, 4)
+texture = ExtResource("2_e3tak")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=605234935]
+points = PackedVector2Array(0, 0, 65, 0)
+gradient = SubResource("Gradient_e3tak")

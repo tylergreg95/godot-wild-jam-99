@@ -4,8 +4,8 @@ class_name TowerPiece
 signal piece_landed()
 signal position_changed(pos: Vector2)
 
-@export var launch_force: float = 5.0
-@export var max_x_drag: float = 300.0
+@export var launch_force: float = 6.0
+@export var max_x_drag: float = 200.0
 
 var mouse_in_piece: bool = false
 var piece_following_cursor: bool = false
@@ -58,7 +58,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		launch()
 
 func launch() -> void:
-	var direction: Vector2 = release_position.direction_to(original_position)
+	var direction: Vector2 = release_position.direction_to(original_position).normalized()
 	var distance: float = release_position.distance_to(original_position)
 	freeze = false
 	linear_velocity = direction * distance * launch_force
@@ -73,7 +73,6 @@ func _on_body_entered(body: Node) -> void:
 	handle_body_entered(body)
 		
 func handle_body_entered(body: Node) -> void:
-	print(body)
 	if not has_landed:
 		has_landed = true
 		var tower_manager: TowerManager = get_tree().current_scene.find_child("TowerManager")

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://ba1v7jol1ak3s"]
 
 [ext_resource type="Script" uid="uid://bc2yvnpghkeqn" path="res://Level/height_goal.gd" id="1_0fumh"]
-[ext_resource type="Texture2D" uid="uid://dcw6xda5rsuin" path="res://icon.svg" id="1_gg4d0"]
-[ext_resource type="Texture2D" uid="uid://bld1trcoaeqgn" path="res://godotwild99_ui_label.png" id="1_jlejy"]
+[ext_resource type="Texture2D" uid="uid://bld1trcoaeqgn" path="res://Art/godotwild99_ui_label.png" id="1_jlejy"]
+[ext_resource type="Texture2D" uid="uid://b88oeleyj0otg" path="res://Art/godotwild99_goal_bar.png" id="2_0fumh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pakj4"]
-size = Vector2(500, 10)
+size = Vector2(2771.5, 57)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pakj4"]
 font_size = 14
@@ -14,17 +14,20 @@ font_size = 14
 script = ExtResource("1_0fumh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=469441296]
+position = Vector2(-411.25, -0.5)
 shape = SubResource("RectangleShape2D_pakj4")
 debug_color = Color(0.23845905, 0.6371952, 0, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=221702923]
-scale = Vector2(3.890625, 0.078125)
-texture = ExtResource("1_gg4d0")
+modulate = Color(1, 1, 1, 0.34117648)
+position = Vector2(653.99994, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("2_0fumh")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=317875558]
-offset_left = 188.0
+offset_left = 340.0
 offset_top = -23.0
-offset_right = 252.0
+offset_right = 404.0
 offset_bottom = 9.0
 texture = ExtResource("1_jlejy")
 

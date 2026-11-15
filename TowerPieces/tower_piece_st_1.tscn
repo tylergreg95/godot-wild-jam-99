@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://un0i0p5rkkwy"]
+
+[ext_resource type="Script" uid="uid://b7f3cd3ntj7h" path="res://TowerPieces/tower_piece.gd" id="1_t1yfh"]
+[ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://Art/godotwild99_tower_pieces.png" id="2_y0srk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs26j"]
+atlas = ExtResource("2_y0srk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvyqv"]
+atlas = ExtResource("2_y0srk")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl1x0"]
+atlas = ExtResource("2_y0srk")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wd4h"]
+atlas = ExtResource("2_y0srk")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gutao"]
+atlas = ExtResource("2_y0srk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6dkh"]
+atlas = ExtResource("2_y0srk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6itx8"]
+atlas = ExtResource("2_y0srk")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60dw7"]
+atlas = ExtResource("2_y0srk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pakj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs26j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvyqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl1x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wd4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gutao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6dkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6itx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60dw7")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TowerPiece" type="RigidBody2D" unique_id=219981200]
+input_pickable = true
+center_of_mass_mode = 1
+freeze = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_t1yfh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=998603764]
+position = Vector2(-32.199997, -0.80000305)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_pakj4")
+frame = 7
+frame_progress = 0.96852326
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=656866294]
+position = Vector2(-96.200005, -0.7999973)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_pakj4")
+frame = 7
+frame_progress = 0.96852326
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=387828097]
+position = Vector2(31.800003, -0.80000305)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_pakj4")
+frame = 7
+frame_progress = 0.96852326
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=511835557]
+position = Vector2(95.8, -0.80000305)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_pakj4")
+frame = 7
+frame_progress = 0.96852326
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=758324629]
+position = Vector2(-64.2, 31.199997)
+polygon = PackedVector2Array(-64, 0, 192, 0, 192, -64, -64, -64)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
