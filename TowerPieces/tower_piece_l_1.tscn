@@ -70,41 +70,41 @@ animations = [{
 [node name="TowerPiece" type="RigidBody2D" unique_id=219981200]
 input_pickable = true
 center_of_mass_mode = 1
-center_of_mass = Vector2(64, -16)
 freeze = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_beth4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=998603764]
+position = Vector2(-51.399994, 13.399994)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pakj4")
 frame = 7
 frame_progress = 0.96852326
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=656866294]
-position = Vector2(0, -64)
+position = Vector2(-51.399994, -50.600006)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pakj4")
 frame = 7
 frame_progress = 0.96852326
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=387828097]
-position = Vector2(64, 0)
+position = Vector2(12.600006, 13.399994)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pakj4")
 frame = 7
 frame_progress = 0.96852326
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=511835557]
-position = Vector2(128, 0)
+position = Vector2(76.600006, 13.399994)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pakj4")
 frame = 7
 frame_progress = 0.96852326
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=758324629]
-position = Vector2(-32, 32)
+position = Vector2(-83.399994, 45.399994)
 polygon = PackedVector2Array(0, 0, 192, 0, 192, -64, 64, -64, 64, -128, 0, -128)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

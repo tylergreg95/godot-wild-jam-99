@@ -12,10 +12,11 @@ var sprite_index: int = 0
 
 func _ready() -> void:
 	pieces.append(piece_scene)
-	pieces.append(piece_l_1_scene)
-	pieces.append(piece_s_1_scene)
-	pieces.append(piece_t_1_scene)
+	#pieces.append(piece_l_1_scene)
+	#pieces.append(piece_s_1_scene)
+	#pieces.append(piece_t_1_scene)
 	spawn_tower_piece()
+
 
 func spawn_tower_piece() -> void:
 	var piece_choice = randi_range(0, len(pieces) - 1)

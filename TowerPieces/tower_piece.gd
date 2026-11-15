@@ -3,8 +3,8 @@ class_name TowerPiece
 
 signal piece_landed()
 
-@export var launch_force: float = 6.5
-@export var max_x_drag: float = 200.0
+@export var launch_force: float = 5.0
+@export var max_x_drag: float = 300.0
 
 var mouse_in_piece: bool = false
 var piece_following_cursor: bool = false
@@ -16,12 +16,6 @@ var atlas_rows: int = 4
 var atlas_columns: int = 2
 var atlas_sprite_size: int = 16
 
-#func _ready() -> void:
-	#var tile_choice: int = randi_range(0, 8)
-	#for child in get_children():
-		#if child is AnimatedSprite2D:
-			#child.frame = tile_choice
-	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and piece_following_cursor:
 		var mouse_pos: Vector2 = get_global_mouse_position()
@@ -36,6 +30,11 @@ func _input(event: InputEvent) -> void:
 				original_position.y + max_x_drag)
 			)
 		global_position = new_pos
+	if clickable and not piece_following_cursor:
+		if event.is_action_pressed("rotate_left"):
+			rotate(-deg_to_rad(90))
+		if event.is_action_pressed("rotate_right"):
+			rotate(deg_to_rad(90))
 
 func _on_mouse_entered() -> void:
 	if not clickable:

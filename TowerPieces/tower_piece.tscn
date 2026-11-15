@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b7f3cd3ntj7h" path="res://TowerPieces/tower_piece.gd" id="1_xs26j"]
 [ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://godotwild99_tower_pieces.png" id="2_xs26j"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nk1il"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxlej"]
 size = Vector2(64, 64)
 
@@ -72,6 +74,7 @@ animations = [{
 
 [node name="TowerPiece" type="RigidBody2D" unique_id=219981200]
 input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_nk1il")
 freeze = true
 contact_monitor = true
 max_contacts_reported = 1
