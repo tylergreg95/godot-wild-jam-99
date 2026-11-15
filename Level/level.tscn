@@ -22,7 +22,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_d6qko")
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1726385044]
-position = Vector2(451, 143)
+position = Vector2(451, 324)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=2034223438]
 position = Vector2(-13, -3.4468994)
