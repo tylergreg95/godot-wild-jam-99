@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cjqv1pndyfk2" path="res://Art/godotwild99_button.png" id="3_k7psi"]
 [ext_resource type="Texture2D" uid="uid://bvh1yi3yuuv42" path="res://Art/godotwild99_button_hover.png" id="5_a7o16"]
 [ext_resource type="Texture2D" uid="uid://danlfvy31aq4a" path="res://Art/godotwild99_button_pressed.png" id="5_iueyo"]
+[ext_resource type="AudioStream" uid="uid://bwh7ehyavo1o2" path="res://Sounds/hover_bloop.wav" id="7_8wewb"]
+[ext_resource type="AudioStream" uid="uid://culq7gyfyy4nj" path="res://Sounds/accept.wav" id="8_6fxmp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y6j7s"]
 shader = ExtResource("1_y6j7s")
@@ -108,5 +110,23 @@ label_settings = SubResource("LabelSettings_pakj4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HoverBloop" type="AudioStreamPlayer" parent="." unique_id=2129962350]
+stream = ExtResource("7_8wewb")
+
+[node name="SceneTransition" type="ColorRect" parent="." unique_id=50659222]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="PlayButtonPress" type="AudioStreamPlayer" parent="." unique_id=1616166736]
+stream = ExtResource("8_6fxmp")
+
+[connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

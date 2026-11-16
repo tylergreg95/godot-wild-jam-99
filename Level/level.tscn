@@ -22,6 +22,15 @@ script = ExtResource("1_iincs")
 [node name="GameUI" parent="CanvasLayer" unique_id=1906126782 instance=ExtResource("7_d6qko")]
 mouse_filter = 2
 
+[node name="ScreenTransition" type="ColorRect" parent="CanvasLayer" unique_id=1391700192]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1706847154]
 position = Vector2(0, -3703.915)
 scale = Vector2(4, 4)
