@@ -6,12 +6,6 @@ extends Node2D
 @onready var score_text: Label = $CanvasLayer/ScoreText
 @onready var tower_manager: TowerManager = $TowerManager
 
-class ScoreData:
-	var value: float
-	
-	func _init(my_value: float) -> void:
-		value = my_value
-
 var current_score: float = 0
 
 func _ready() -> void:
