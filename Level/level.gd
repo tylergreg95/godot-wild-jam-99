@@ -5,12 +5,23 @@ extends Node2D
 @onready var screen_transition: ColorRect = $CanvasLayer/ScreenTransition
 @onready var score_text: Label = $CanvasLayer/ScoreText
 @onready var tower_manager: TowerManager = $TowerManager
+@onready var game_timer: Timer = $GameTimer
+@onready var time_text: Label = $CanvasLayer/TimeText
 
 var current_score: float = 0
 
 func _ready() -> void:
 	var screen_transition_tween: Tween = get_tree().create_tween()
 	screen_transition_tween.tween_property(screen_transition, "color", Color(0,0,0,0), 1)
+	screen_transition_tween.tween_callback(start_level_timer)
+	
+
+func _process(delta: float) -> void:
+	if(not game_timer.is_stopped()):
+		time_text.text = "%.1f" % game_timer.time_left
+
+func start_level_timer() -> void:
+	game_timer.start()
 
 func _on_tower_manager_goal_completed() -> void:
 	var camera_tween: Tween = get_tree().create_tween()

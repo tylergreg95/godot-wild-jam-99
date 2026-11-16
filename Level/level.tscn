@@ -12,6 +12,11 @@ font_size = 32
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_sxlej"]
+font_size = 36
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pakj4"]
 size = Vector2(688, 274.8938)
 
@@ -45,8 +50,18 @@ grow_horizontal = 0
 text = "0"
 label_settings = SubResource("LabelSettings_pakj4")
 
-[node name="GameTimer" type="Timer" parent="CanvasLayer" unique_id=1227465894]
-wait_time = 100.0
+[node name="TimeText" type="Label" parent="CanvasLayer" unique_id=41511538]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_right = 46.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "100.0"
+label_settings = SubResource("LabelSettings_sxlej")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1706847154]
 position = Vector2(0, -3703.915)
@@ -86,6 +101,10 @@ zoom = Vector2(0.685, 0.685)
 [node name="FetchScoreTimer" type="Timer" parent="." unique_id=879531822]
 wait_time = 0.5
 autostart = true
+
+[node name="GameTimer" type="Timer" parent="." unique_id=1227465894]
+wait_time = 100.0
+one_shot = true
 
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
 [connection signal="goal_completed" from="TowerManager" to="." method="_on_tower_manager_goal_completed"]
