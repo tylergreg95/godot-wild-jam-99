@@ -39,9 +39,5 @@ func spawn_tower_piece() -> void:
 func update_direction_line(piece_pos: Vector2):
 	line_2d.set_point_position(1, global_position - piece_pos)
 	var pull_distance = global_position.distance_to(piece_pos)
-	print(pull_distance)
 	var pull_color: Color = Color(pull_distance/282.5,0,0)
-	
 	line_2d.gradient.set_color(1, pull_color)
-	
-	#line_2d.gradient.set_color(1, )

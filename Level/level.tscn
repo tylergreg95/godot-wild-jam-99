@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cvxjyovty6tlw" path="res://Level/tower_manager.tscn" id="4_52x1o"]
 [ext_resource type="PackedScene" uid="uid://rpdhc7mc5ieg" path="res://UI/game_ui.tscn" id="7_d6qko"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_pakj4"]
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pakj4"]
 size = Vector2(688, 274.8938)
 
@@ -23,6 +28,7 @@ script = ExtResource("1_iincs")
 mouse_filter = 2
 
 [node name="ScreenTransition" type="ColorRect" parent="CanvasLayer" unique_id=1391700192]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,6 +36,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=1257871777]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -123.0
+offset_top = 16.0
+offset_right = -26.0
+offset_bottom = 39.0
+grow_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_pakj4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1706847154]
 position = Vector2(0, -3703.915)
@@ -66,5 +84,10 @@ zoom = Vector2(0.685, 0.685)
 
 [node name="TowerManager" parent="." unique_id=1520560073 instance=ExtResource("4_52x1o")]
 
+[node name="FetchScoreTimer" type="Timer" parent="." unique_id=879531822]
+wait_time = 0.5
+autostart = true
+
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
 [connection signal="goal_completed" from="TowerManager" to="." method="_on_tower_manager_goal_completed"]
+[connection signal="timeout" from="FetchScoreTimer" to="." method="_on_fetch_score_timer_timeout"]

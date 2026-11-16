@@ -4,7 +4,7 @@ class_name TowerPiece
 signal piece_landed()
 signal position_changed(pos: Vector2)
 
-@export var launch_force: float = 6.0
+@export var launch_force: float = 6.5
 @export var max_x_drag: float = 200.0
 
 var mouse_in_piece: bool = false

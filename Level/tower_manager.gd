@@ -4,13 +4,12 @@ class_name TowerManager
 signal goal_completed()
 
 @export var height_goal_delta: float = 400
+@export var tower_pieces_in_tower: Array[TowerPiece] = []
 
 const X_OFFSET: float = 450.0
 
 var current_height_goal: float = 0
 var height_goal_area: PackedScene = preload("uid://ba1v7jol1ak3s")
-
-@export var tower_pieces_in_tower: Array[TowerPiece] = []
 var current_height_goal_instance: Area2D
 
 func _ready() -> void:
@@ -20,7 +19,6 @@ func create_next_height_goal() -> Area2D:
 	current_height_goal += height_goal_delta
 	var next_goal: Area2D = height_goal_area.instantiate()
 	next_goal.global_position = Vector2(X_OFFSET, -current_height_goal)
-	next_goal.set_height_label_text(current_height_goal)
 	add_child(next_goal)
 	next_goal.body_entered.connect(handle_height_goal_entered)
 	return next_goal
@@ -52,3 +50,15 @@ func _on_height_goal_complete_timer_timeout() -> void:
 func freeze_current_tower() -> void:
 	for tower_piece: TowerPiece in tower_pieces_in_tower:
 		tower_piece.freeze = true
+
+func get_highest_piece_value() -> float:
+	var max_height = 0
+	if len(tower_pieces_in_tower) <= 0:
+		return 0
+	for piece: TowerPiece in tower_pieces_in_tower:
+		if not piece.has_landed:
+			continue
+		if piece.position.y < max_height:
+			max_height = piece.position.y
+	return max_height
+	
