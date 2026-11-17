@@ -7,6 +7,9 @@ signal position_changed(pos: Vector2)
 @export var launch_force: float = 6.5
 @export var max_x_drag: float = 200.0
 
+@onready var launch_sound: AudioStreamPlayer = $LaunchSound
+
+
 var mouse_in_piece: bool = false
 var piece_following_cursor: bool = false
 var original_position: Vector2
@@ -16,6 +19,7 @@ var has_landed: bool = false
 var atlas_rows: int = 4
 var atlas_columns: int = 2
 var atlas_sprite_size: int = 16
+var has_launched: bool = false
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and piece_following_cursor:
@@ -30,6 +34,7 @@ func _input(event: InputEvent) -> void:
 				original_position.y - max_x_drag, 
 				original_position.y + max_x_drag)
 			)
+		#DEBUG#var new_pos: Vector2 = Vector2(mouse_pos.x, mouse_pos.y)
 		global_position = new_pos
 		position_changed.emit(global_position)
 	if clickable and not piece_following_cursor:
@@ -58,9 +63,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		launch()
 
 func launch() -> void:
+	if has_launched:
+		return
+	has_launched = true
 	var direction: Vector2 = release_position.direction_to(original_position).normalized()
 	var distance: float = release_position.distance_to(original_position)
 	freeze = false
+	launch_sound.play()
 	linear_velocity = direction * distance * launch_force
 	pass
 

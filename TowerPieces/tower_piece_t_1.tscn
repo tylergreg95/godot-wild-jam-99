@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7f3cd3ntj7h" path="res://TowerPieces/tower_piece.gd" id="1_sovtn"]
 [ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://Art/godotwild99_tower_pieces.png" id="2_4cqoc"]
+[ext_resource type="AudioStream" uid="uid://bx446wla6amer" path="res://Sounds/51755__erkanozan__whip-01.wav" id="3_4cqoc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xs26j"]
 atlas = ExtResource("2_4cqoc")
@@ -106,6 +107,9 @@ frame_progress = 0.96852326
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=758324629]
 position = Vector2(-96.399994, 46.399994)
 polygon = PackedVector2Array(0, 0, 192, 0, 192, -64, 128, -64, 128, -128, 64, -128, 64, -64, 0, -64)
+
+[node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=1508904545]
+stream = ExtResource("3_4cqoc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

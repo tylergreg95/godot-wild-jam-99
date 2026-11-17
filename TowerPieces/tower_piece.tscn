@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7f3cd3ntj7h" path="res://TowerPieces/tower_piece.gd" id="1_xs26j"]
 [ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://Art/godotwild99_tower_pieces.png" id="2_xs26j"]
+[ext_resource type="AudioStream" uid="uid://bx446wla6amer" path="res://Sounds/51755__erkanozan__whip-01.wav" id="3_gvyqv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nk1il"]
 
@@ -88,6 +89,9 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pakj4")
 frame = 7
 frame_progress = 0.96852326
+
+[node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=391917131]
+stream = ExtResource("3_gvyqv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

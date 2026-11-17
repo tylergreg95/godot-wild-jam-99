@@ -14,6 +14,7 @@ func _ready() -> void:
 	var screen_transition_tween: Tween = get_tree().create_tween()
 	screen_transition_tween.tween_property(screen_transition, "color", Color(0,0,0,0), 1)
 	screen_transition_tween.tween_callback(start_level_timer)
+	screen_transition_tween.play()
 	
 
 func _process(delta: float) -> void:
@@ -28,7 +29,10 @@ func _on_tower_manager_goal_completed() -> void:
 	camera_tween.tween_property(camera_2d, "global_position", camera_2d.global_position + Vector2(0, -400), 1.0)
 	camera_tween.play()
 	piece_spawner.move_local_y(-400)
+	increase_timer_remaining()
 
+func increase_timer_remaining() -> void:
+	game_timer.start(game_timer.time_left + 60.0)
 
 func _on_fetch_score_timer_timeout() -> void:
 	var new_score: float = -tower_manager.get_highest_piece_value()
