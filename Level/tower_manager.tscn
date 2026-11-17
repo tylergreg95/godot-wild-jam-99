@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cvxjyovty6tlw"]
 
 [ext_resource type="Script" uid="uid://dqu82ju8ox5p6" path="res://Level/tower_manager.gd" id="1_j4r2g"]
+[ext_resource type="AudioStream" uid="uid://c6rp5lqj3boa1" path="res://Sounds/tada.wav" id="2_gqioc"]
 
 [node name="TowerManager" type="Node2D" unique_id=426100245]
 script = ExtResource("1_j4r2g")
@@ -8,5 +9,9 @@ script = ExtResource("1_j4r2g")
 [node name="HeightGoalCompleteTimer" type="Timer" parent="." unique_id=824157433]
 wait_time = 3.0
 one_shot = true
+
+[node name="HeightGoalComplete" type="AudioStreamPlayer" parent="." unique_id=2026239407]
+stream = ExtResource("2_gqioc")
+volume_db = -5.474
 
 [connection signal="timeout" from="HeightGoalCompleteTimer" to="." method="_on_height_goal_complete_timer_timeout"]

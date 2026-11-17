@@ -6,11 +6,15 @@ signal goal_completed()
 @export var height_goal_delta: float = 400
 @export var tower_pieces_in_tower: Array[TowerPiece] = []
 
+@onready var height_goal_complete: AudioStreamPlayer = $HeightGoalComplete
+
+
 const X_OFFSET: float = 450.0
 
 var current_height_goal: float = 0
 var height_goal_area: PackedScene = preload("uid://ba1v7jol1ak3s")
 var current_height_goal_instance: Area2D
+var height_goal_complete_sound_pitch: float = 1.0
 
 func _ready() -> void:
 	current_height_goal_instance = create_next_height_goal()
@@ -43,6 +47,9 @@ func _on_height_goal_complete_timer_timeout() -> void:
 	if current_height_goal_instance.has_overlapping_bodies():
 		current_height_goal_instance.call_deferred("queue_free")
 		var next_height_goal = create_next_height_goal()
+		height_goal_complete.pitch_scale = height_goal_complete_sound_pitch
+		height_goal_complete.play()
+		height_goal_complete_sound_pitch += 0.1
 		goal_completed.emit()
 		freeze_current_tower() 
 		current_height_goal_instance = next_height_goal

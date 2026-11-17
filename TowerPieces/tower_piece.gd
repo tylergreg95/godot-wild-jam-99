@@ -24,17 +24,17 @@ var has_launched: bool = false
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and piece_following_cursor:
 		var mouse_pos: Vector2 = get_global_mouse_position()
-		var new_pos: Vector2 = Vector2(
-			clampf(
-				mouse_pos.x, 
-				original_position.x - max_x_drag, 
-				original_position.x + max_x_drag), 
-			clampf(
-				mouse_pos.y, 
-				original_position.y - max_x_drag, 
-				original_position.y + max_x_drag)
-			)
-		#DEBUG#var new_pos: Vector2 = Vector2(mouse_pos.x, mouse_pos.y)
+		#var new_pos: Vector2 = Vector2(
+			#clampf(
+				#mouse_pos.x, 
+				#original_position.x - max_x_drag, 
+				#original_position.x + max_x_drag), 
+			#clampf(
+				#mouse_pos.y, 
+				#original_position.y - max_x_drag, 
+				#original_position.y + max_x_drag)
+			#)
+		var new_pos: Vector2 = Vector2(mouse_pos.x, mouse_pos.y)
 		global_position = new_pos
 		position_changed.emit(global_position)
 	if clickable and not piece_following_cursor:
@@ -70,7 +70,7 @@ func launch() -> void:
 	var distance: float = release_position.distance_to(original_position)
 	freeze = false
 	launch_sound.play()
-	linear_velocity = direction * distance * launch_force
+	#linear_velocity = direction * distance * launch_force
 	pass
 
 func setup(sprite_index: int):
