@@ -26,6 +26,7 @@ Config="*uid://dpsmu1xch16gb"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://ckmqspc46dltg"
 
 [dotnet]
 

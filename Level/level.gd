@@ -15,8 +15,11 @@ class_name Level
 
 var current_score: float = 0
 var level_in_progress: bool = false
+var open_hand_cursor = preload("res://Art/hand_open.svg")
+var default_cursor = preload("res://Art/cursor_none.svg")
 
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(open_hand_cursor)
 	var screen_transition_tween: Tween = get_tree().create_tween()
 	screen_transition_tween.tween_property(screen_transition, "color", Color(0,0,0,0), 1)
 	screen_transition_tween.tween_callback(start_level_timer)
@@ -58,6 +61,7 @@ func _on_fetch_score_timer_timeout() -> void:
 
 
 func _on_game_timer_timeout() -> void:
+	Input.set_custom_mouse_cursor(default_cursor)
 	game_over.play()
 	level_in_progress = false
 	game_over_ui.set_score_text(current_score)

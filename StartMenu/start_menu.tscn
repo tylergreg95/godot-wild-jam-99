@@ -312,6 +312,7 @@ stream = ExtResource("12_jj7h3")
 autoplay = true
 bus = &"Music"
 playback_type = 1
+parameters/looping = true
 
 [connection signal="mouse_entered" from="ButtonContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]

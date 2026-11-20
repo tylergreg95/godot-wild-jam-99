@@ -108,7 +108,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="GameTimer" type="Timer" parent="." unique_id=1227465894]
-wait_time = 5.0
+wait_time = 100.0
 one_shot = true
 
 [node name="GameOver" type="AudioStreamPlayer" parent="." unique_id=2104775279]
@@ -123,6 +123,7 @@ pitch_scale = 0.8
 autoplay = true
 bus = &"Music"
 playback_type = 1
+parameters/looping = true
 
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
 [connection signal="goal_completed" from="TowerManager" to="." method="_on_tower_manager_goal_completed"]
