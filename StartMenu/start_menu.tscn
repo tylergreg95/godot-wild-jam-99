@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://culq7gyfyy4nj" path="res://Sounds/accept.wav" id="8_6fxmp"]
 [ext_resource type="AudioStream" uid="uid://0q5cggyhcgrk" path="res://Sounds/ui_open.wav" id="10_8l6b2"]
 [ext_resource type="AudioStream" uid="uid://dkq26yk4ufpin" path="res://Sounds/ui_close.wav" id="11_xmtbb"]
+[ext_resource type="AudioStream" uid="uid://b670pakffytrx" path="res://Sounds/Caketown 1.mp3" id="12_jj7h3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y6j7s"]
 shader = ExtResource("1_y6j7s")
@@ -304,6 +305,12 @@ playback_type = 1
 [node name="OptionsClose" type="AudioStreamPlayer" parent="." unique_id=1277679988]
 stream = ExtResource("11_xmtbb")
 bus = &"Sounds"
+playback_type = 1
+
+[node name="StartMenuMusic" type="AudioStreamPlayer" parent="." unique_id=1836595082]
+stream = ExtResource("12_jj7h3")
+autoplay = true
+bus = &"Music"
 playback_type = 1
 
 [connection signal="mouse_entered" from="ButtonContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
