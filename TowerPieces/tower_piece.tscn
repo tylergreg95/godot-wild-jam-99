@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7f3cd3ntj7h" path="res://TowerPieces/tower_piece.gd" id="1_xs26j"]
 [ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://Art/godotwild99_tower_pieces.png" id="2_xs26j"]
 [ext_resource type="AudioStream" uid="uid://bx446wla6amer" path="res://Sounds/51755__erkanozan__whip-01.wav" id="3_gvyqv"]
+[ext_resource type="AudioStream" uid="uid://dekfdwtw2jysu" path="res://Sounds/click.wav" id="4_kl1x0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nk1il"]
 
@@ -92,6 +93,13 @@ frame_progress = 0.96852326
 
 [node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=391917131]
 stream = ExtResource("3_gvyqv")
+bus = &"Sounds"
+playback_type = 1
+
+[node name="RotateClick" type="AudioStreamPlayer" parent="." unique_id=1416606822]
+stream = ExtResource("4_kl1x0")
+bus = &"Sounds"
+playback_type = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

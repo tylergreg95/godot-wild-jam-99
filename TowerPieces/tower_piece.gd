@@ -8,6 +8,8 @@ signal position_changed(pos: Vector2)
 @export var max_x_drag: float = 200.0
 
 @onready var launch_sound: AudioStreamPlayer = $LaunchSound
+@onready var rotate_click: AudioStreamPlayer = $RotateClick
+
 
 
 var mouse_in_piece: bool = false
@@ -42,8 +44,10 @@ func _input(event: InputEvent) -> void:
 		position_changed.emit(global_position)
 	if clickable and not piece_following_cursor:
 		if event.is_action_pressed("rotate_left"):
+			rotate_click.play()
 			rotate(-deg_to_rad(90))
 		if event.is_action_pressed("rotate_right"):
+			rotate_click.play()
 			rotate(deg_to_rad(90))
 
 func _on_mouse_entered() -> void:

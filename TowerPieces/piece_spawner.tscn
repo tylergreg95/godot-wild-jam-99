@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dxu6hge450whg" path="res://TowerPieces/piece_spawner.gd" id="1_73r2g"]
 [ext_resource type="Texture2D" uid="uid://bq8i2ikqu5dbv" path="res://Art/godotwild99_dash_outline.png" id="2_e3tak"]
+[ext_resource type="Texture2D" uid="uid://di1jtbha5p5kv" path="res://Art/godotwild99_rotate_arrows.png" id="3_d1xob"]
+[ext_resource type="Texture2D" uid="uid://crvw7lt6pe2rm" path="res://Art/tile_0120.png" id="4_br5x2"]
+[ext_resource type="Texture2D" uid="uid://cov058rjfdeft" path="res://Art/tile_0122.png" id="5_bxivd"]
 
 [sub_resource type="Gradient" id="Gradient_e3tak"]
 colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)
@@ -13,6 +16,21 @@ script = ExtResource("1_73r2g")
 scale = Vector2(4, 4)
 texture = ExtResource("2_e3tak")
 
+[node name="RotateArrows" type="Sprite2D" parent="." unique_id=803990231]
+position = Vector2(0, 162.01)
+scale = Vector2(2, 2)
+texture = ExtResource("3_d1xob")
+
 [node name="Line2D" type="Line2D" parent="." unique_id=605234935]
 points = PackedVector2Array(0, 0, 65, 0)
 gradient = SubResource("Gradient_e3tak")
+
+[node name="Tile0120" type="Sprite2D" parent="." unique_id=558065206]
+position = Vector2(-112, 223)
+scale = Vector2(4, 4)
+texture = ExtResource("4_br5x2")
+
+[node name="Tile0122" type="Sprite2D" parent="." unique_id=1700421983]
+position = Vector2(112, 223)
+scale = Vector2(4, 4)
+texture = ExtResource("5_bxivd")

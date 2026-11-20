@@ -61,8 +61,22 @@ func _on_fetch_score_timer_timeout() -> void:
 
 
 func _on_game_timer_timeout() -> void:
+	tower_manager.freeze_current_tower()
 	Input.set_custom_mouse_cursor(default_cursor)
 	game_over.play()
 	level_in_progress = false
+	$FetchScoreTimer.stop()
+	
+	#do what the timer does, but allow tween to finish setting score text before we display it in the game over
+	var new_score: float = -tower_manager.get_highest_piece_value()
+	if new_score == current_score:
+		return
+	var score_tween: Tween = get_tree().create_tween()
+	score_tween.tween_property(self, "current_score" ,new_score, .5)
+	score_tween.tween_method(func(val): score_text.text = str("%.0f" % float(val)), current_score, new_score, .5)
+	score_tween.tween_callback(show_game_over_ui)
+	
+
+func show_game_over_ui() -> void:
 	game_over_ui.set_score_text(current_score)
 	game_over_ui.visible = true

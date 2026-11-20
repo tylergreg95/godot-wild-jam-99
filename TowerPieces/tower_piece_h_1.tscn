@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7f3cd3ntj7h" path="res://TowerPieces/tower_piece.gd" id="1_ar5f2"]
 [ext_resource type="Texture2D" uid="uid://cntrutphvtfqt" path="res://Art/godotwild99_tower_pieces.png" id="2_2k01p"]
 [ext_resource type="AudioStream" uid="uid://bx446wla6amer" path="res://Sounds/51755__erkanozan__whip-01.wav" id="3_2k01p"]
+[ext_resource type="AudioStream" uid="uid://dekfdwtw2jysu" path="res://Sounds/click.wav" id="4_uhk7w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xs26j"]
 atlas = ExtResource("2_2k01p")
@@ -110,6 +111,13 @@ polygon = PackedVector2Array(-64, -64, 64, -64, 64, 0, 128, 0, 128, 64, 0, 64, 0
 
 [node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=400244962]
 stream = ExtResource("3_2k01p")
+bus = &"Sounds"
+playback_type = 1
+
+[node name="RotateClick" type="AudioStreamPlayer" parent="." unique_id=904739307]
+stream = ExtResource("4_uhk7w")
+bus = &"Sounds"
+playback_type = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
