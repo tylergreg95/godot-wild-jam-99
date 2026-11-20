@@ -14,6 +14,14 @@ config/name="GodotWildJam99"
 run/main_scene="uid://c3ggxlnhdgik8"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://dmshkq658isyl"
+
+[autoload]
+
+Config="*uid://dpsmu1xch16gb"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -22,6 +30,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="GodotWildJam99"
+
+[global_group]
+
+Level="poor man's way of getting the level"
 
 [input]
 

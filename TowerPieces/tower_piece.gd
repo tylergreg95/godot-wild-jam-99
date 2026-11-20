@@ -20,6 +20,7 @@ var atlas_rows: int = 4
 var atlas_columns: int = 2
 var atlas_sprite_size: int = 16
 var has_launched: bool = false
+var impact_particles: PackedScene = preload("uid://3q67ejy7ntvf")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and piece_following_cursor:
@@ -61,6 +62,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		release_position = global_position
 		piece_following_cursor = false
 		launch()
+
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	pass
+	#for i in state.get_contact_count():
+		#var contact_point: Vector2 = state.get_contact_local_position(i)
+		#var particles: GPUParticles2D = impact_particles.instantiate()
+		#add_child(particles)
+		#particles.position = contact_point
+		#particles.emitting = true
+		#print(contact_point)
 
 func launch() -> void:
 	if has_launched:

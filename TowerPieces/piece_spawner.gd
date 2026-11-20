@@ -1,4 +1,5 @@
 extends Marker2D
+class_name PieceSpawner
 
 @export var tower_manager: TowerManager
 
@@ -23,10 +24,12 @@ func _ready() -> void:
 	pieces.append(piece_st_1_scene)
 	pieces.append(piece_u_1_scene)
 	pieces.append(piece_h_1_scene)
-	spawn_tower_piece()
 
 
 func spawn_tower_piece() -> void:
+	var level: Level = get_tree().get_nodes_in_group("Level")[0]
+	if not level.level_in_progress: 
+		return
 	var piece_choice = randi_range(0, len(pieces) - 1)
 	var instance: TowerPiece = pieces[piece_choice].instantiate()
 	add_child.call_deferred(instance)

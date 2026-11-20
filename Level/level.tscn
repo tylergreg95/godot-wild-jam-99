@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://djyks8aglmfmk" path="res://TowerPieces/piece_spawner.tscn" id="2_uawph"]
 [ext_resource type="Script" uid="uid://kmqfh5dc0uk6" path="res://Level/death_area.gd" id="3_uawph"]
 [ext_resource type="PackedScene" uid="uid://cvxjyovty6tlw" path="res://Level/tower_manager.tscn" id="4_52x1o"]
+[ext_resource type="AudioStream" uid="uid://djvjk4pctuxfq" path="res://Sounds/382310__mountain_man__game-over-arcade.wav" id="7_d6qko"]
+[ext_resource type="AudioStream" uid="uid://jsfw65qiejl6" path="res://Sounds/happy.mp3" id="8_22cqp"]
+[ext_resource type="PackedScene" uid="uid://ddqbsjd8ld6pf" path="res://UI/game_over_ui.tscn" id="9_wqlfs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pakj4"]
 font_size = 32
@@ -23,7 +26,7 @@ size = Vector2(688, 274.8938)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxlej"]
 size = Vector2(20000, 20)
 
-[node name="Level" type="Node2D" unique_id=1509851918]
+[node name="Level" type="Node2D" unique_id=1509851918 groups=["Level"]]
 script = ExtResource("1_iincs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=389915867]
@@ -62,6 +65,9 @@ label_settings = SubResource("LabelSettings_sxlej")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameOverUI" parent="CanvasLayer" unique_id=250677395 instance=ExtResource("9_wqlfs")]
+visible = false
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1706847154]
 position = Vector2(0, -3703.915)
 scale = Vector2(4, 4)
@@ -70,13 +76,13 @@ texture = ExtResource("2_d6qko")
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1726385044]
 position = Vector2(451, 324)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=2034223438]
-position = Vector2(-13, -3.4468994)
-shape = SubResource("RectangleShape2D_pakj4")
-
 [node name="Platform" type="Sprite2D" parent="Platform" unique_id=1080591736]
 scale = Vector2(4, 4)
 texture = ExtResource("2_nk1il")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=2034223438]
+position = Vector2(-13, -3.4468994)
+shape = SubResource("RectangleShape2D_pakj4")
 
 [node name="PieceSpawner" parent="." unique_id=580911642 node_paths=PackedStringArray("tower_manager") instance=ExtResource("2_uawph")]
 position = Vector2(-470, -6)
@@ -102,9 +108,23 @@ wait_time = 0.5
 autostart = true
 
 [node name="GameTimer" type="Timer" parent="." unique_id=1227465894]
-wait_time = 100.0
+wait_time = 5.0
 one_shot = true
+
+[node name="GameOver" type="AudioStreamPlayer" parent="." unique_id=2104775279]
+stream = ExtResource("7_d6qko")
+bus = &"Sounds"
+playback_type = 1
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="." unique_id=94064390]
+stream = ExtResource("8_22cqp")
+volume_db = -10.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"Music"
+playback_type = 1
 
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
 [connection signal="goal_completed" from="TowerManager" to="." method="_on_tower_manager_goal_completed"]
 [connection signal="timeout" from="FetchScoreTimer" to="." method="_on_fetch_score_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
