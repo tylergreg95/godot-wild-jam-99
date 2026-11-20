@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bvh1yi3yuuv42" path="res://Art/godotwild99_button_hover.png" id="5_a7o16"]
 [ext_resource type="Texture2D" uid="uid://danlfvy31aq4a" path="res://Art/godotwild99_button_pressed.png" id="5_iueyo"]
 [ext_resource type="AudioStream" uid="uid://bwh7ehyavo1o2" path="res://Sounds/hover_bloop.wav" id="7_8wewb"]
+[ext_resource type="Texture2D" uid="uid://gin3xjvmf0a" path="res://Art/godotwildpanel.svg" id="8_5gi2k"]
 [ext_resource type="AudioStream" uid="uid://culq7gyfyy4nj" path="res://Sounds/accept.wav" id="8_6fxmp"]
+[ext_resource type="FontFile" uid="uid://dkhx6hdwsi07w" path="res://Fonts/WhimsyDhimsy-Demo.ttf" id="9_q5ob2"]
 [ext_resource type="AudioStream" uid="uid://0q5cggyhcgrk" path="res://Sounds/ui_open.wav" id="10_8l6b2"]
 [ext_resource type="AudioStream" uid="uid://dkq26yk4ufpin" path="res://Sounds/ui_close.wav" id="11_xmtbb"]
 [ext_resource type="AudioStream" uid="uid://b670pakffytrx" path="res://Sounds/Caketown 1.mp3" id="12_jj7h3"]
@@ -20,6 +22,12 @@ shader_parameter/speed = 0.05
 [sub_resource type="LabelSettings" id="LabelSettings_pakj4"]
 font_size = 28
 font_color = Color(0.18, 0.18, 0.18, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5gi2k"]
+font = ExtResource("9_q5ob2")
+font_size = 64
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sxlej"]
 
@@ -170,7 +178,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="OptionsPanel" type="Panel" parent="." unique_id=1858966109]
+[node name="OptionsPanel" type="TextureRect" parent="." unique_id=618078383]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -178,21 +186,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -407.0
-offset_top = -271.0
-offset_right = 407.0
-offset_bottom = 271.0
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 297.195
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("8_5gi2k")
 
-[node name="Background" type="ColorRect" parent="OptionsPanel" unique_id=92929795]
+[node name="Label" type="Label" parent="OptionsPanel" unique_id=81463020]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = 83.64
+offset_right = 31.0
+offset_bottom = 106.640015
 grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.8627451)
+text = "Options"
+label_settings = SubResource("LabelSettings_5gi2k")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel" unique_id=856156410]
 layout_mode = 1
@@ -201,10 +216,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -130.5
-offset_top = -38.5
-offset_right = 130.5
-offset_bottom = 38.5
+offset_left = -137.0
+offset_top = -36.755005
+offset_right = 137.0
+offset_bottom = 205.24506
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -10,7 +10,7 @@ extends Control
 @onready var scene_transition: ColorRect = $SceneTransition
 @onready var play_button_press: AudioStreamPlayer = $PlayButtonPress
 @onready var close_options_button: TextureButton = $OptionsPanel/VBoxContainer/CloseOptionsButton
-@onready var options_panel: Panel = $OptionsPanel
+@onready var options_panel: TextureRect = $OptionsPanel
 @onready var master_slider: HSlider = %MasterSlider
 @onready var sounds_slider: HSlider = %SoundsSlider
 @onready var music_slider: HSlider = %MusicSlider
@@ -118,11 +118,16 @@ func _on_close_options_button_mouse_entered() -> void:
 func _on_close_options_button_pressed() -> void:
 	options_close.play()
 	options_panel.visible = false
-
+	play_button.disabled = false
+	options_button.disabled = false
+	quit_button.disabled = false
 
 func _on_options_button_pressed() -> void:
 	options_open.play()
 	options_panel.visible = true
+	play_button.disabled = true
+	options_button.disabled = true
+	quit_button.disabled = true
 
 
 func _on_master_slider_value_changed(value: float) -> void:
