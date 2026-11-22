@@ -39,7 +39,7 @@ func _input(event: InputEvent) -> void:
 				original_position.y - max_x_drag, 
 				original_position.y + max_x_drag)
 			)
-		#var new_pos: Vector2 = Vector2(mouse_pos.x, mouse_pos.y)
+		#new_pos = Vector2(mouse_pos.x, mouse_pos.y)
 		global_position = new_pos
 		position_changed.emit(global_position)
 	if clickable and not piece_following_cursor:
